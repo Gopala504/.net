@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <textarea name="text" id="textArea" rows="10" cols="50"></textarea>
+    <br><br>
+    <button onclick="submitText()">Submit</button>
+    <button onclick="clearText()">Clear</button>
+
+    <script>
+        function submitText() {
+            var text = document.getElementById("textArea").value;
+            localStorage.setItem("text", text);
+            alert("Text saved to localStorage!");
+        }
+
+        function clearText() {
+            document.getElementById("textArea").value = "";
+            localStorage.removeItem("text");
+            alert("Text cleared from localStorage!");
+        }
+    </script>
+    
+</body>
+</html>

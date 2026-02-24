@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pro Notes App</title>
+
+    <style>
+        /* Page Background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Main Container */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 95%;
+            height: 90px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102,126,234,0.5);
+        }
+
+        /* Save Button */
+        .saveBtn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .saveBtn:hover {
+            background: #5563c1;
+            transform: scale(1.03);
+        }
+
+        /* Notes Section */
+        .notesSection {
+            margin-top: 20px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        /* Individual Note Card */
+        .noteBox {
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .noteBox p {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
+
+        .noteBox button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: 0.3s;
+        }
+
+        .noteBox button:first-child {
+            background: #28a745;
+            color: white;
+        }
+
+        .noteBox button:first-child:hover {
+            background: #1e7e34;
+        }
+
+        .noteBox button:last-child {
+            background: #dc3545;
+            color: white;
+        }
+
+        .noteBox button:last-child:hover {
+            background: #a71d2a;
+        }
+
+        /* Scrollbar Styling */
+        .notesSection::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .notesSection::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 450px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>📝 My Notes</h2>
+
+    <textarea id="noteInput" placeholder="Write your note here..."></textarea>
+
+    <button class="saveBtn" onclick="addNote()">Save Note</button>
+
+    <div class="notesSection" id="notesContainer"></div>
+
+</div>
+
+<script>
+
+    window.onload = function() {
+        showNotes();
+    };
+
+    function addNote() {
+
+        var text = document.getElementById("noteInput").value;
+
+        if (text == "") {
+            alert("Please write something");
+            return;
+        }
+
+        var notes = localStorage.getItem("notes");
+
+        if (notes == null) {
+            notes = [];
+        } else {
+            notes = JSON.parse(notes);
+        }
+
+        notes.push(text);
+
+        localStorage.setItem("notes", JSON.stringify(notes));
+
+        document.getElementById("noteInput").value = "";
+
+        showNotes();
+    }
+
+    function showNotes() {
+
+        var notes = localStorage.getItem("notes");
+
+        if (notes == null) {
+            notes = [];
+        } else {
+            notes = JSON.parse(notes);
+        }
+
+        var container = document.getElementById("notesContainer");
+        container.innerHTML = "";
+
+        var i;
+
+        for (i = 0; i < notes.length; i++) {
+
+            container.innerHTML = container.innerHTML +
+                "<div class='noteBox'>" +
+                "<p>" + notes[i] + "</p>" +
+                "<button onclick='editNote(" + i + ")'>Edit</button>" +
+                "<button onclick='deleteNote(" + i + ")'>Delete</button>" +
+                "</div>";
+        }
+    }
+
+    function deleteNote(index) {
+
+        var notes = JSON.parse(localStorage.getItem("notes"));
+
+        notes.splice(index, 1);
+
+        localStorage.setItem("notes", JSON.stringify(notes));
+
+        showNotes();
+    }
+
+    function editNote(index) {
+
+        var notes = JSON.parse(localStorage.getItem("notes"));
+
+        var newText = prompt("Edit your note:", notes[index]);
+
+        if (newText != null) {
+            notes[index] = newText;
+            localStorage.setItem("notes", JSON.stringify(notes));
+            showNotes();
+        }
+    }
+
+</script>
+
+</body>
+</html>

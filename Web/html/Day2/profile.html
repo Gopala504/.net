@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Mythra</title>
+    <link rel="stylesheet" href="/Web/css/Day2/mithra.css">
+    <link rel="stylesheet" href="/Web/css/Day2/home.css">
+    <style>
+        .profile-info {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background-color: #555;
+            height: 100%;
+            padding: 40px;
+        }
+
+        .profile-info img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            margin-top: 20px;
+        }
+
+        .profile-info h1 {
+            margin: 20px 0 10px;
+            color: red;
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            color: white;
+            margin: 8px 0;
+        }
+
+        .profile-info button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: aliceblue;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .profile-info button:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .logout-btn {
+            background-color: #ff4444 !important;
+            margin-left: 10px;
+        }
+
+        .logout-btn:hover {
+            background-color: #cc0000 !important;
+        }
+
+        .login-prompt {
+            text-align: center;
+            padding: 50px;
+            color: #333;
+        }
+
+        .login-prompt h2 {
+            margin-bottom: 30px;
+        }
+
+        .login-prompt a {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 12px 25px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .login-prompt a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="/Web/Assets/logo.jpg" alt="logo">
+        </div>
+        <nav>
+            <a href="/Web/html/Day2/home.html">Home</a>
+            <a href="/Web/html/Day2/mithra.html">Mens</a>
+            <a href="/Web/html/Day2/womens.html">Womens</a>
+            <a href="/Web/html/Day2/kids.html">Kids</a>
+            <a href="#">Beauty</a>
+            <a href="#">Genz</a>
+            <a href="#">Studio</a>
+            <input type="search" placeholder="search here">
+            <div id="profile-container">
+                <a href="#" id="login">Profile</a>
+                <div id="profile-menu">
+                    <button id="login-btn">Login</button>
+                    <button id="register-btn">Register</button>
+                </div>
+            </div>
+            <a href="#">Wishlist</a>
+            <a href="#">Bag</a>
+        </nav>
+    </header>
+
+    <div id="profile-content">
+        <!-- Profile or login prompt will be shown here -->
+    </div>
+
+    <script>
+        const profileContainer = document.getElementById('profile-container');
+        const profileMenu = document.getElementById('profile-menu');
+        
+        profileContainer.addEventListener('mouseenter', function() {
+            profileMenu.style.display = 'block';
+        });
+        
+        profileContainer.addEventListener('mouseleave', function() {
+            profileMenu.style.display = 'none';
+        });
+        
+        document.getElementById('login-btn').addEventListener('click', function() {
+            window.location.href = '/Web/html/Day2/login.html';
+        });
+        
+        document.getElementById('register-btn').addEventListener('click', function() {
+            window.location.href = '/Web/html/Day2/register.html';
+        });
+
+        // Check if user is logged in
+        window.addEventListener('load', function() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const profileContent = document.getElementById('profile-content');
+
+            if (user && user.isLoggedIn) {
+                // Display user profile
+                profileContent.innerHTML = `
+                    <div class="profile-info">
+                        <img src="/Web/Assets/p.jpeg" alt="profile picture">
+                        <h1>My Profile</h1>
+                        <p><strong>Name:</strong> ${user.fullname}</p>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                        <p><strong>Phone:</strong> ${user.phone}</p>
+                        <p><strong>Address:</strong> ${user.address}</p>
+                        <button onclick="editProfile()">Edit Profile</button>
+                        <button class="logout-btn" onclick="logout()">Logout</button>
+                    </div>
+                `;
+            } else {
+                // Show login prompt
+                profileContent.innerHTML = `
+                    <div class="login-prompt">
+                        <h2>Welcome to Mythra</h2>
+                        <p>Please login or register to view your profile</p>
+                        <a href="/Web/html/Day2/login.html">Login</a>
+                        <a href="/Web/html/Day2/register.html">Register</a>
+                    </div>
+                `;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = '/Web/html/Day2/profile.html';
+        }
+
+        function editProfile() {
+            alert('Edit profile functionality coming soon!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    background-color: skyblue;
+}
+h2{
+    text-align: center;
+    color: #333;
+}
+#loginForm{
+    width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"]{  
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#loginForm button{
+    width: 90%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#loginForm button:hover{
+    background-color: #45a049;
+}
+#loginForm p{
+    text-align: center;
+    margin-top: 20px;
+}
+#loginForm p a{
+    color: #4CAF50;
+    text-decoration: none;
+}

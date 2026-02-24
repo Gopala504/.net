@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <button onclick="changeTheme()">Change Theme</button>
+
+    <script>
+        function changeTheme() {
+            var currentTheme = document.body.style.backgroundColor;
+
+            if (currentTheme === "white" || currentTheme === "") {
+                document.body.style.backgroundColor = "black";
+                document.body.style.color = "white";
+            } else {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+            }
+        }
+    </script> -->
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Dark Mode Toggle</title>
+</head>
+<body>
+
+<h2>Dark Mode Toggle Example</h2>
+
+<button onclick="toggleMode()">Toggle Dark Mode</button>
+
+<script>
+
+function toggleMode() {
+
+    let currentMode = localStorage.getItem("mode");
+
+    if (currentMode === "dark") {
+
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+
+        localStorage.setItem("mode", "light");
+
+    } else {
+
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+
+        localStorage.setItem("mode", "dark");
+    }
+}
+
+
+function loadMode() {
+
+    let savedMode = localStorage.getItem("mode");
+
+    if (savedMode === "dark") {
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "white";
+    }
+}
+
+loadMode();
+
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

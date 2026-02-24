@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mythra</title>
+    <link rel="stylesheet" href="/Web/css/Day2/home.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+         <img src="/Web/Assets/logo.jpg" alt="logo">
+         </div>
+        <nav>
+            <a href="/Web/html/Day2/mithra.html">Mens</a>
+            <a href="/Web/html/Day2/womens.html">Womens</a>
+            <a href="/Web/html/Day2/kids.html">Kids</a>
+            <a href="/Web/html/Day2/home.html">Home</a>
+            <a href="/Web/html/Day2/Beauty.html">Beauty</a>
+            <a href="#">Genz</a>
+            <a href="#">Studio</a>
+            <input type="search" placeholder="search here">
+            <div id="profile-container">
+                <a href="#" id="login">Profile</a>
+                <div id="profile-menu">
+                    <button id="login-btn">Login</button>
+                    <button id="register-btn">Register</button>
+                </div>
+            </div>
+            <a href="#">Wishlist</a>
+            <a href="#">Bag</a>
+        </nav>
+</header>
+
+<div id="offer">
+<img src="/Web/Assets/off.jpg" alt="">
+</div>
+
+<div id="categories">
+    <div class="cat-box">
+        <a href="/Web/html/Day2/mithra.html">
+        <img src="/Web/Assets/mens.jpg" alt=""></a>
+        <h3>Mens</h3>
+    </div>
+    <div class="cat-box">
+        <a href="/Web/html/Day2/womens.html">
+        <img src="/Web/Assets/womens.jpg" alt=""></a>
+        <h3>Womens</h3>
+    </div>
+    <div class="cat-box">
+        <a href="/Web/html/Day2/kids.html">
+        <img src="/Web/Assets/k3.webp" alt=""></a>
+        <h3>Kids</h3>
+    </div>
+    
+    <script>
+        const profileContainer = document.getElementById('profile-container');
+        const profileMenu = document.getElementById('profile-menu');
+        const loginLink = document.getElementById('login');
+        
+        profileContainer.addEventListener('mouseenter', function() {
+            profileMenu.style.display = 'block';
+        });
+        
+        profileContainer.addEventListener('mouseleave', function() {
+            profileMenu.style.display = 'none';
+        });
+        
+        document.getElementById('login-btn').addEventListener('click', function() {
+            window.location.href = '/Web/html/Day2/login.html';
+        });
+        
+        document.getElementById('register-btn').addEventListener('click', function() {
+            window.location.href = '/Web/html/Day2/register.html';
+        });
+    </script>
+</body>
+</html>

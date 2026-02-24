@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    min-height: 100vh;
+}
+
+.side-bar{
+    flex: 0 0 300px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-cont{
+    flex: 1;
+    padding: 20px;
+    background-color: #fafafa;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    height: 100%;
+}
+
+.box{
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.box:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transform: translateY(5px);
+}
+
+.box img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.box h3{
+    margin-top: 10px;
+}
+
+.box p{
+    font-size: 14px;
+    color: gray;
+    margin: 5px 0;
+}
+
+.box h4{
+    margin-top: 5px;
+    color: #222;
+}
+
+
+.profile{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #555;
+    height: 100%;
+}
+
+.profile img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: 20px;
+}
+
+.profile h1{
+    margin: 20px 0 10px;
+    color: red;
+}
+
+.profile p{
+    font-size: 18px;
+    color: white;
+}
+
+.profile button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: aliceblue;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile button:hover{
+    background-color: #007BFF;
+    color: white;
+}
+
+.profile a{
+    margin-top: 20px;
+    text-decoration: none;
+    color: black; 
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .side-bar {
+        width: 100%;
+        height: auto;
+    }
+    .grid-cont {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.side-bar ul{
+    list-style: none;
+    padding: 20px;
+}
+
+.side-bar ul li{
+    background-color: whitesmoke;
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.side-bar ul li a{
+    text-decoration: none;
+    color: navy;
+    font-size: 18px;
+}
+
+.side-bar ul li a:hover{
+    color: #007BFF;
+}
+
+.side-bar h2{
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.side-bar h3{
+    color: plum;
+    text-align: center;
+    margin-top: 5px;
+    background-color: #333;
+}

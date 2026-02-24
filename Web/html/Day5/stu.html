@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+</head>
+<body>
+    
+    <h1>Student Management System</h1>
+    <div id="studentList"></div>
+    <label for="text"> enter your marks </label>
+    <input type="text" name="marks" id="text" placeholder="enter your marks">
+    <button onclick="updateStudent()">UpDate</button>
+
+    <script>
+        let stud={
+            name:'sai',
+            age:22,
+            course:'.net',
+            marks:90
+        }
+        function displayStudents(studobj){
+            let studentList = document.getElementById('studentList');
+            studentList.innerHTML = `<p>Name: ${studobj.name}</p>
+                                     <p>Age: ${studobj.age}</p>
+                                     <p>Course: ${studobj.course}</p>
+                                     <p>Marks: ${studobj.marks}</p>`;
+        }
+
+        function updateStudent( ){
+        let marksInput = document.getElementById('text').value;
+            stud.marks = marksInput;
+            displayStudents(stud);
+        }
+
+        displayStudents(stud);
+
+    </script>
+
+</body>
+</html>

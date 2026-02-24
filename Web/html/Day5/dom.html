@@ -1,0 +1,160 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Web/css/Day5/dom.css">
+</head>
+<body> -->
+    <!-- <h1>Hello World</h1>
+    <h1>hi</h1>
+    <h1>hello</h1>
+    <button onclick="innerHTMLExample()">Inner HTML</button>
+    <button onclick="innerTextExample()">Inner Text</button>
+    <button onclick="changeText()">click me</button>
+    <button onclick="querySelectorallExample()">Query Selector All</button>
+    <button onclick="getelementbytagnameExample()">Get Element By Tag Name</button>
+    <script>
+        function changeText() {
+            document.querySelector('h1').textContent = 'Hello JavaScript';
+        }
+
+        function innerHTMLExample() {
+            document.querySelector('h1').innerHTML = '<span style="color: red;">Hello JavaScript</span>';
+        }
+
+        function innerTextExample() {
+            document.querySelector('h1').innerText = '<span style="color: red;">Hello JavaScript</span>';
+        }
+
+        function querySelectorallExample() {
+            const elements = document.querySelectorAll('h1');
+            elements.forEach(element => {
+                element.textContent = 'Hello JavaScript';
+            });
+        }
+
+        function getelementbytagnameExample() {
+            const elements = document.getElementsByTagName('h1');
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].textContent = 'Hello JavaScript';
+            }
+        }
+
+    </script> -->
+
+
+    <!-- <h1>Demo</h1>
+    <div id="Container"></div>
+    <button onclick="ExctingBox()">Add Div</button>
+    
+    <script>
+
+        function ExctingBox(){
+            let existingBox = document.querySelector(".box");
+            if( existingBox ){
+                existingBox.remove();
+            }
+            else{
+            let newBox = document.createElement("div");
+
+            newBox.className = "box";
+            newBox.innerHTML='<h1>hi</h1>';
+
+            document.getElementById("Container").appendChild(newBox);
+            }
+        }
+
+        // function addBox() {
+
+        //     let newBox = document.createElement("div");
+
+        //     newBox.className = "box";
+        //     newBox.innerHTML="hi";
+
+        //     document.getElementById("Container").appendChild(newBox);
+        // }
+
+    </script> -->
+
+    <!-- <div id="profile" class="profile"> your profile</div>
+    <div id="container"></div> -->
+
+    <!-- <style>
+.box {
+    height: 250px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+    font-size: small;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.profile {
+    
+    background-color: gray;
+    width: 100px;
+    height: 30px;
+}
+    </style> -->
+
+    <!-- <script>
+
+        let profile = document.getElementById("profile")
+
+        function addProfile(){
+            let existingBox = document.querySelector(".box");
+
+            if(existingBox){
+                existingBox.remove()
+            } else {
+                let newBox = document.createElement("div");
+
+                newBox.className = "box";
+
+                newBox.innerHTML = "<p><b>Welcome<b> <br> To access account and manage orders</p> <br> <button class=login-btn>Login/Signup</button> <br> <hr> <ul><li>Orders</li><li>Wishlist</li><li>Gift Cards</li><li>Contact us</li></ul> <hr> <ul><li>Coupons</li><li>Saved Cards</li><li>Saved Address</li></ul>"
+
+                document.getElementById("Container").appendChild(newBox);
+            }
+        }
+
+        profile.addEventListener("click", addProfile)
+
+    </script> -->
+
+<!-- </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Web/css/Day5/dom.css">
+</head>
+<body>
+    <h1>profile</h1>
+    <div class="profile" id="profile"> </div>
+    <div id="Container"></div>
+    <button onclick="addBox()">click here</button>
+   <script>
+
+        let profile = document.getElementById("profile")
+        function addProfile(){
+            let existingBox = document.querySelector(".box");
+            if(existingBox){
+                existingBox.remove()
+            } else {
+                let newBox = document.createElement("div");
+                newBox.className = "box";
+                newBox.innerHTML = "<p><b>Welcome<b> <br> To access the details of student</p> <br> <button class=login-btn>Login/Signup</button> <br> <hr> <ul><li>Name</li><li>contact Details</li><li>score secured</li><li>Badges</li></ul> <hr> <ul><li>Rank</li><li> Details</li><li> address</li></ul>"
+                document.getElementById("Container").appendChild(newBox);
+            }
+        }
+        profile.addEventListener("click", addProfile)
+    
+</script>
+</body>
+</html>

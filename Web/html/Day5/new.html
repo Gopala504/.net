@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color:skyblue;
+        }
+        #counter{
+            font-size: 2rem;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+        }
+        #increment{
+            background-color: green;
+            color: white;
+        }
+        #decrement{
+            background-color: red;
+            color: white;
+        }
+        #counterApp{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgb(242, 255, 0);
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+        }
+        #buttons{
+            display: flex;
+            justify-content: center;
+        }
+        h2{
+            margin: 0;
+            margin-bottom: 20px;
+            color: navy;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- <label for="nameInput">Enter your name:</label>
+    <input type="text" name="name" id="nameInput" placeholder="Enter your name">
+    <button onclick="display()">Submit</button>
+    <p id="greeting"></p>
+    <p id="message"></p> -->
+
+    <!-- <h2>User Info</h2>
+    <button onclick="display()">Display User Info</button>
+
+    <div id="userInfo"></div> -->
+<div id="counterApp">
+    <h2>Counter Application</h2>
+    <h2 id="counter">0</h2>
+    <div id="buttons">
+    <button onclick="increment()" id="increment">Increment</button>
+    <button onclick="decrement()" id="decrement">reset</button>
+    </div>
+</div>
+
+    <script src="/Web/js/Day5/dom.js"></script>
+</body>
+</html>
