@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+
+    <h2>🌤 Weather Report</h2>
+    <button onclick="getWeatherPromise()">Get Weather (Promise)</button>
+    <button onclick="getWeatherAsync()">Get Weather (Async/Await)</button>
+
+    <div id="weatherResult"></div>
+
+<script>
+
+// API URL
+const apiURL = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m";
+
+const weatherDiv = document.getElementById("weatherResult");
+
+
+// ===============================
+// ✅ 1. Using Promises (.then())
+// ===============================
+
+const getWeatherPromise = () => {
+
+    fetch(apiURL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            displayWeather(data);
+        })
+        .catch(error => {
+            weatherDiv.innerHTML = `❌ Error: ${error.message}`;
+        });
+
+};
+
+
+// ===============================
+// ✅ 2. Using Async / Await
+// ===============================
+
+const getWeatherAsync = async () => {
+
+    try {
+        const response = await fetch(apiURL);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch weather data");
+        }
+
+        const data = await response.json();
+
+        displayWeather(data);
+
+    } catch (error) {
+        weatherDiv.innerHTML = `❌ Error: ${error.message}`;
+    }
+
+};
+
+
+// ===============================
+// ✅ Display Function
+// ===============================
+
+const displayWeather = (data) => {
+
+    const temp = data.current.temperature_2m;
+    const wind = data.current.wind_speed_10m;
+    const time = data.current.time;
+
+    weatherDiv.innerHTML = `
+        <h3>📍 Berlin Weather</h3>
+        <p>🕒 Time: ${time}</p>
+        <p>🌡 Temperature: ${temp} °C</p>
+        <p>💨 Wind Speed: ${wind} km/h</p>
+    `;
+};
+
+</script>
+
+</body>
+</html>

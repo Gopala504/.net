@@ -1,0 +1,97 @@
+/* Smooth transition */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    margin: 0;
+    padding: 0;
+}
+
+/* Light Theme (Default) */
+body.light {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #1e1e2f;
+    color: #ffffff;
+}
+
+/* Theme Toggle */
+.theme-container {
+    text-align: right;
+    padding: 20px;
+}
+
+#themeToggle {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    color: white;
+    transition: 0.3s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.05);
+}
+
+/* Feedback Table */
+#feedback-table {
+    width: 400px;
+    margin: 80px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: background-color 0.4s ease;
+}
+
+/* Dark mode table */
+body.dark #feedback-table {
+    background-color: #2c2c3e;
+}
+
+#feedback-table td {
+    padding: 10px;
+}
+
+#feedback-table input,
+#feedback-table textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+#feedback-table input:focus,
+#feedback-table textarea:focus {
+    border-color: #007bff;
+}
+
+/* Submit Button */
+#submit {
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(45deg, #28a745, #00d084);
+    color: white;
+    transition: 0.3s;
+}
+
+#submit:hover {
+    transform: scale(1.05);
+}
+
+/* Message */
+#message {
+    text-align: center;
+    font-weight: bold;
+}

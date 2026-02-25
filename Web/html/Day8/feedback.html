@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="/Web/css/Day8/feedback.css">
+</head>
+<body>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-container">
+        <button id="themeToggle">Switch Theme</button>
+    </div>
+
+    <table id="feedback-table">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" id="email"></td>
+        </tr>
+        <tr>
+            <td>Feedback</td>
+            <td><textarea id="feedback"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="message"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button id="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+
+    <script src="/Web/js/Day8/feedback.js"></script>
+</body>
+</html>
